@@ -1,0 +1,25 @@
+import time
+import threading
+import random
+print("Printed Immediately.")
+time.sleep(2.4)
+print("Printed after 2.4 seconds")
+
+def print_hello_three_times():
+    for i in range(3):
+        delay = random.uniform(1,5)
+        print("Hello " + str(delay) + "s")
+        time.sleep(delay)
+
+def print_hi_three_times():
+    for i in range(3):
+        delay = random.uniform(1,3)
+        print("Hi " + str(delay) + "s")
+        time.sleep(delay)
+
+t1 = threading.Thread(target=print_hello_three_times)
+t2 = threading.Thread(target=print_hi_three_times)
+
+t1.start()
+t2.start()
+
